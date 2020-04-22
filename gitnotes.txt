@@ -1,0 +1,13 @@
+git push origin --delete test
+git checkout --track origin/newsletter
+tags
+git commit --amend -m "New commit message."
+git alias.
+git rebase -i HEAD~4
+remotos----->
+git push origin serverfix
+git fetch origin---git merge origin/master
+git checkout -b serverfix origin/serverfix
+git branch -vv
+git push origin --delete serverfix
+git push --delete origin tagname
