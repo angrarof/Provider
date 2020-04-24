@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 
 public class DataProviderTest {
 
-    @DataProvider(name = "getData")
+    @DataProvider
     public Object[][] getData(Method m){
         Object[][] data = null;
         if(m.getName().equalsIgnoreCase("getCredentials")){
