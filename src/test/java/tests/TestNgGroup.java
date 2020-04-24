@@ -1,6 +1,9 @@
 package tests;
 
 import org.testng.annotations.Test;
+import utils.ExcelUtils;
+
+import java.io.IOException;
 
 public class TestNgGroup {
 
@@ -10,7 +13,7 @@ public class TestNgGroup {
     }
 
     @Test
-    public void test2(){
+    public void test2() throws IOException {
         System.out.println("Test 2");
     }
 
