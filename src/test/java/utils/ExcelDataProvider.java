@@ -39,8 +39,7 @@ public class ExcelDataProvider {
 
         for (int i =1; i<rowCount; i++){
             for (int j = 0; j<columnCount; j++){
-                String cellData = excelUtils.getCellData(i,j);
-                data[i-1][j]=cellData;
+                data[i-1][j]=excelUtils.getCellData(i,j);
             }
         }
 
