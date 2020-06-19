@@ -26,4 +26,12 @@
         </classes>
     </test>
 
+    <test name="Chrome win 10">
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="nodeUrl" value="http://192.168.100.17:5566/wd/hub/"></parameter>
+        <classes>
+            <class name="tests.SeleniumGrid"></class>
+        </classes>
+    </test>
+
 </suite>
