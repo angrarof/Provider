@@ -29,7 +29,7 @@ public class DataProviderTest {
         System.out.println(username+" "+pass);
     }
 
-    @Test(dataProvider = "getData")
+    @Test(dataProvider = "getData", enabled = false)
     public void getName(String name){
         System.out.println(name);
     }

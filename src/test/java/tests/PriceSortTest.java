@@ -36,7 +36,7 @@ public class PriceSortTest {
     private HomePage homePage;
     private ResultsPage resultsPage;
 
-    @BeforeClass
+    //@BeforeClass
     public void setTest() {
         driver = new DriverSetup("chrome", true).getDriver();
         logger = LogManager.getLogger(this);
