@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 public class SeleniumGrid {
     private  DesiredCapabilities capability = null;
     private  ChromeOptions chromeOptions;
-    private  WebDriver driver;
+    private static RemoteWebDriver driver;
 
 
     @BeforeTest
@@ -39,6 +39,10 @@ public class SeleniumGrid {
                 chromeOptions = new ChromeOptions();
                 chromeOptions.setCapability(CapabilityType.BROWSER_NAME,"chrome");
                 chromeOptions.setCapability(CapabilityType.PLATFORM_NAME,Platform.ANY);
+                /*capability.setCapability(ChromeOptions.CAPABILITY,chromeOptions);
+                capability = DesiredCapabilities.chrome();
+                capability.setBrowserName("chrome");
+                capability.setPlatform(Platform.ANY);*/
                 break;
             case "firefox":
                 capability = DesiredCapabilities.firefox();
@@ -60,17 +64,17 @@ public class SeleniumGrid {
                 break;
         }
 
-        if (browser.equalsIgnoreCase("chrome")){
+        if (browser.equalsIgnoreCase("chrome")) {
             driver = new RemoteWebDriver(new URL(url), chromeOptions);
         }else {
-            driver = new RemoteWebDriver(new URL(url),capability);
+            driver= new RemoteWebDriver(new URL(url),capability);
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.get("https://www.google.com");
     }
 
-    @Test
+    @Test()
     @Parameters({"browser"})
     public void testSelenoumGrid(String browser){
         System.out.println("Testing selenium grid from: "+browser);
@@ -78,10 +82,7 @@ public class SeleniumGrid {
 
     @Test(groups = "regression")
     public void enterText(){
-        driver.findElement(By.name("q")).sendKeys("This is an example");
-        driver.findElement(By.name("btnK")).submit();
-        WebDriverWait wait = new WebDriverWait(driver,20);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("result-stats")));
+        driver.findElement(By.name("q")).sendKeys("askdñlkañlsdk ñañsldkñalsk dñalskd ñalskdñ alsdk ñalsdk ñalsdk ñalsdk ñasdl ");
     }
 
     @AfterTest
