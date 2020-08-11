@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test NG" thread-count="2" parallel="tests">
+    <test name="Chrome win 10">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="nodeUrl" value="http://192.168.100.17:5566/wd/hub/"/>
+        <classes>
+            <class name="tests.SeleniumGrid"/>
+        </classes>
+    </test>
+
+    <test name="Firefox win 10">
+        <parameter name="browser" value="firefox"/>
+        <parameter name="nodeUrl" value="http://192.168.100.17:5577/wd/hub/"/>
+        <classes>
+            <class name="tests.SeleniumGrid"/>
+        </classes>
+    </test>
+</suite>
