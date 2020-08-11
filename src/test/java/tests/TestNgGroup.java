@@ -12,23 +12,28 @@ public class TestNgGroup {
         System.out.println("Test 1");
     }
 
-    @Test(enabled = false)
+    @Test
     public void test2() throws IOException {
         System.out.println("Test 2");
     }
 
-    @Test(groups = {"smoke"}, enabled = false)
+    @Test(groups = {"smoke"},  priority = 2)
     public void test3(){
         System.out.println("Test 3");
     }
 
-    @Test(enabled = false)
+    @Test
     public void test4(){
         System.out.println("Test 4");
     }
 
-    @Test(groups = {"uat"}, enabled = false)
+    @Test(groups = {"uat"})
     public void test5(){
         System.out.println("Test 5");
+    }
+
+    @Test(groups = {"uat"})
+    public void test6(){
+        System.out.println("Test 6");
     }
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Test NG">
+<suite name="Test NG" thread-count="2" parallel="tests">
 
-    <test name="Test Name">
+    <!--<test name="Test Name">
         <groups>
             <run>
                 <include name="uat"/>
@@ -10,7 +10,11 @@
         </groups>
 
         <classes>
-            <class name="tests.TestNgGroup"/>
+            <class name="tests.TestNgGroup">
+                <methods>
+                    <exclude name="test5"></exclude>
+                </methods>
+            </class>
         </classes>
     </test>
 
@@ -24,13 +28,26 @@
         <classes>
             <class name="tests.TestNgGroup"/>
         </classes>
-    </test>
+    </test>-->
 
     <test name="Chrome win 10">
-        <parameter name="browser" value="chrome"></parameter>
-        <parameter name="nodeUrl" value="http://192.168.100.17:5566/wd/hub/"></parameter>
+        <parameter name="browser" value="chrome"/>
+        <parameter name="nodeUrl" value="http://192.168.100.17:5566/wd/hub/"/>
+        <groups>
+            <run>
+                <include name="uat"/>
+            </run>
+        </groups>
         <classes>
-            <class name="tests.SeleniumGrid"></class>
+            <class name="tests.TestNgGroup"/>
+        </classes>
+    </test>
+
+    <test name="Firefox win 10">
+        <parameter name="browser" value="firefox"/>
+        <parameter name="nodeUrl" value="http://192.168.100.17:5577/wd/hub/"/>
+        <classes>
+            <class name="tests.SeleniumGrid"/>
         </classes>
     </test>
 

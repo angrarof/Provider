@@ -2,6 +2,7 @@ package tests;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import utils.ExcelDataProvider;
 
 import java.lang.reflect.Method;
 
@@ -17,21 +18,27 @@ public class DataProviderTest {
             };
         }else{
             data = new Object[][]{
-                    {"ANGELLLLl"}
+                    {"ANGELLLLl"},
+                    {"DOOOOOS"}
             };
         }
 
         return data;
     }
 
-    @Test(dataProvider = "getData", enabled = false)
-    public void getCredentials(String username, String pass){
+    @Test(dataProvider = "getData", dataProviderClass = ExcelDataProvider.class, enabled = true)
+    public void printUsers(String username, String pass){
         System.out.println(username+" "+pass);
     }
 
-    @Test(dataProvider = "getData", enabled = false)
+    @Test(dataProvider = "getData", enabled = true)
     public void getName(String name){
         System.out.println(name);
+    }
+
+    @Test(dataProvider = "getData", enabled = true)
+    public void getCredentials(String username, String pass){
+        System.out.println(username+" "+pass);
     }
 
 }

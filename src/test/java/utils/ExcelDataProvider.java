@@ -30,6 +30,7 @@ public class ExcelDataProvider {
         data=createData(sheet,System.getProperty("user.dir")+"/spreads/data.xlsx");
         return data;
     }
+
     public Object[][] createData(String sheetName, String excelPath) throws IOException {
         ExcelUtils excelUtils = new ExcelUtils(sheetName,excelPath);
         int rowCount = excelUtils.getRowCount();
