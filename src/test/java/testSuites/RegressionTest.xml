@@ -13,3 +13,4 @@
             <class name="tests.TestNgGroup"/>
         </classes>
     </test>
+</suite>
