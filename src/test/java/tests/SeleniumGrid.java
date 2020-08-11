@@ -10,6 +10,8 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -72,6 +74,14 @@ public class SeleniumGrid {
     @Parameters({"browser"})
     public void testSelenoumGrid(String browser){
         System.out.println("Testing selenium grid from: "+browser);
+    }
+
+    @Test(groups = "regression")
+    public void enterText(){
+        driver.findElement(By.name("q")).sendKeys("This is an example");
+        driver.findElement(By.name("btnK")).submit();
+        WebDriverWait wait = new WebDriverWait(driver,20);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("result-stats")));
     }
 
     @AfterTest
