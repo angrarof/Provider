@@ -8,12 +8,12 @@ pipeline{
   stages{
     stage('Create Selenium Grid'){
       steps{
-        sh "docker-compose up"
+        bat "docker-compose up"
       }
     }
     stage('Run tests'){
       steps{
-        sh "mvn test -DsuiteXmlFiles=${xmlFile}"
+        bat "mvn test -DsuiteXmlFiles=Testing.xml"
       }  
     }
   }
