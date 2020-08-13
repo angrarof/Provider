@@ -8,13 +8,21 @@ pipeline{
   stages{
     stage('Create Selenium Grid'){
       steps{
-        bat "docker-compose up"
+        sh "docker-compose up"
       }
     }
     stage('Run tests'){
       steps{
-        bat "mvn test -DsuiteXmlFiles=Testing.xml"
+        sh "mvn test -DsuiteXmlFiles=Testing.xml"
       }  
+    }
+  }
+  
+  post {
+    // If Maven was able to run the tests, even if some of the test
+    // failed, record the test results and archive the jar file.
+    success {
+      junit '**/target/surefire-reports/TEST-*.xml'
     }
   }
 
