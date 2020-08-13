@@ -2,7 +2,7 @@ pipeline{
   agent any
 
   tools{
-    maven 'maven3'
+    maven 'MAVEN_LAP'
   }
 
   stages{
@@ -12,7 +12,9 @@ pipeline{
       }
     }
     stage('Run tests'){
-      sh "mvn test -DsuiteXmlFiles=${xmlFile}"
+      steps{
+        sh "mvn test -DsuiteXmlFiles=${xmlFile}"
+      }  
     }
   }
 
