@@ -23,6 +23,7 @@ pipeline{
     // failed, record the test results and archive the jar file.
     always{
       sh 'docker-compose down'
+    }
     success {
       junit '**/target/surefire-reports/TEST-*.xml'
     }
